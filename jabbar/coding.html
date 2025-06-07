@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Elegant Wedding Celebration</title>
+<style>
+  :root {
+    --color-primary: #bfa054; /* rich gold */
+    --color-primary-dark: #907b44; /* deeper gold/dark bronze */
+    --color-gray-dark: hsl(52, 100%, 90%); /* dark brown for headings */
+    --color-gray-light: #7c7052; /* lighter brown for body text */
+    --color-bg: #000000;
+    --color-shadow: rgba(183, 152, 74, 0.15); /* soft goldish shadow */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --radius: 0.75rem;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --container-max-width: 1200px;
+  }
+
+  /* Import Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@600;700&display=swap');
+
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-gray-light);
+    line-height: 1.6;
+    font-size: 18px;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-gray-dark);
+    margin-top: 0;
+  }
+  h1 {
+    font-weight: 700;
+    font-size: 4.5rem; /* Increased size for bigger logo emphasis */
+    line-height: 1.1;
+  }
+  h2 {
+    font-weight: 600;
+    font-size: 2rem;
+  }
+  h3 {
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+  }
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+  a:hover,
+  a:focus {
+    color: var(--color-primary-dark);
+  }
+
+  /* Container */
+  .container {
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* Navigation */
+  header {
+    position: sticky;
+    top: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid #ffffff;
+    box-shadow: 0 2px 4px var(--color-shadow);
+    z-index: 100;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4.5rem;
+  }
+  .logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .logo svg {
+    width: 28px;
+    height: 28px;
+    fill: var(--color-primary);
+    flex-shrink: 0;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+  .nav-links a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.25rem 0;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: var(--color-primary);
+    width: 0;
+    transition: width var(--transition);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 2px;
+  }
+  .nav-links a:hover::after,
+  .nav-links a:focus::after {
+    width: 100%;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 6rem 1.25rem 8rem;
+    text-align: center;
+    background: linear-gradient(135deg, #bfa054 0%, #907b44 100%);
+    color: #ffffff;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);
+  }
+  .hero .logo-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 180px; /* Increased for bigger logo */
+    margin-bottom: 1.5rem;
+    object-fit: contain;
+  }
+  .hero h1 {
+    font-size: 4rem;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+  }
+  .hero p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+    text-shadow: 0 1px 6px rgba(255, 255, 255, 0.3);
+  }
+  .btn-primary {
+    background-color: #000000;
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.125rem;
+    padding: 1rem 3rem;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255 255 255 / 0.4);
+    transition: background-color var(--transition), color var(--transition), transform 0.25s ease;
+    user-select: none;
+    text-shadow: none;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #f9f3d1;
+    color: var(--color-primary-dark);
+    transform: scale(1.05);
+    outline: none;
+  }
+
+  /* Sections */
+  section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--color-primary);
+    font-size: 2.5rem;
+  }
+
+  /* About Section */
+  .about {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.125rem;
+    color: var(--color-gray-dark);
+    line-height: 1.7;
+  }
+
+  /* Services Section */
+  .services-grid {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+  }
+  .service-card {
+    background: #1a1a1a;
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 15px var(--color-shadow);
+    text-align: center;
+    transition: box-shadow var(--transition);
+    color: var(--color-gray-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .service-card:hover,
+  .service-card:focus-within {
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.7);
+  }
+  .service-icon {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+  .service-title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary);
+  }
+  .service-desc {
+    font-size: 1rem;
+    color: var(--color-gray-light);
+    margin-bottom: 1rem;
+  }
+  .service-photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    width: 100%;
+  }
+  .service-photos img {
+    width: 100%;
+    aspect-ratio: 1.5 / 1;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease;
+  }
+  .service-photos img:hover,
+  .service-photos img:focus {
+    transform: scale(1.05);
+  }
+
+  /* Gallery Section */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 1rem;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+  }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    cursor: pointer;
+    box-shadow: 0 1px 6px var(--color-shadow);
+    transition: transform var(--transition) ease;
+  }
+  .gallery-item img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+    transition: transform var(--transition) ease;
+  }
+  .gallery-item:hover img,
+  .gallery-item:focus img {
+    transform: scale(1.05);
+  }
+
+  /* RSVP Section */
+  .rsvp-container {
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #1a1a1a;
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 20px var(--color-shadow);
+    text-align: center;
+    color: var(--color-gray-light);
+  }
+
+  /* Contact Section */
+  .contact-info {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: var(--color-gray-dark);
+  }
+  .contact-info p {
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+  }
+
+  /* Footer */
+  footer {
+    background: #121212;
+    padding: 2rem 1.25rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-gray-light);
+  }
+
+  /* Responsive Typography */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.75rem;
+    }
+    section h2 {
+      font-size: 1.75rem;
+    }
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    .service-photos {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="container" aria-label="Primary navigation">
+    <a href="#" class="logo" aria-label="WeddingDay home">
+      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 64 64" role="img" >
+       
+     </svg>
+  JABBARWEDDING
+</a>
+    <div class="nav-links" role="navigation" aria-label="Main menu">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#rsvp">RSVP</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.tiktok.com/@jabbar.wedding?_t=ZS-8x0VfYxQvS6&_r=1" target="_blank" rel="noopener" aria-label="Visit TikTok" class="nav-tiktok" style="font-weight:600; color: var(--color-primary); transition: color var(--transition); text-decoration:none;">
+        TikTok
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" role="banner" aria-label="Wedding celebration hero">
+    <div class="container">
+      <img src="logojabbarwd.png" alt="Wedding logo" class="logo-image" />
+      <h1>JABBAR WEDDING</h1>
+      <p>Pernikahan impian? Serahkan pada Jabbar Wedding</p>
+      </p>WO|MUA|DECORATION|CATERING|DLL.</p>
+      <button class="btn-primary" onclick="document.getElementById('rsvp').scrollIntoView({behavior: 'smooth'});" aria-label="RSVP now">RSVP Now</button>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-title">
+    <h2 id="about-title">About Us</h2>
+    <div class="about container">
+      <p>
+       Jabbar Wedding adalah layanan penyelenggara pernikahan yang menghadirkan suasana sakral, hangat, dan tertata dengan penuh ketulusan. Kami hadir untuk membantu setiap pasangan mempersiapkan hari istimewa mereka dengan konsep yang rapi, elegan, dan tetap menjunjung nilai kesopanan serta kesederhanaan.
+
+Kami memahami bahwa pernikahan bukan sekadar acara, tapi momen penting yang membawa perubahan besar dalam hidup dua insan. Oleh karena itu, setiap layanan kami dirancang dengan penuh perhatian—mulai dari riasan muslimah yang anggun dan nyaman, dekorasi yang menenangkan, hingga dokumentasi yang menjaga privasi dan estetika.
+
+Dengan tim yang berpengalaman dan profesional, Jabbar Wedding siap menjadi pendamping terbaik dalam proses mewujudkan pernikahan impian. Kami tidak hanya menawarkan jasa, tetapi juga memberi ketenangan dan kepercayaan di setiap tahap persiapan.
+
+Kami percaya bahwa yang sederhana bisa menjadi sangat berkesan, dan yang tertata dengan baik akan menjadi kenangan yang tak terlupakan..
+      </p>
+      <p>
+       Jabbar Wedding – Mewujudkan pernikahan hangat, sopan, dan penuh makna.
+
+
+      </p>
+    </div>
+  </section>
+
+  <section id="services" aria-labelledby="services-title">
+    <h2 id="services-title">Wedding Services</h2>
+    <div class="services-grid container" role="list">
+      <article class="service-card" role="listitem" tabindex="0" aria-label="Venue decoration">
+        <div class="service-icon" aria-hidden="true"></div>
+        <h3 class="service-title"> JABBAR DECORATION</h3>
+        <p class="service-desc">Rangkaian bunga dan pencahayaan yang elegan untuk menciptakan suasana romantis yang sempurna.</p>
+        <div class="service-photos" aria-label="Venue decoration photos">
+          <img src="dekor1 (2).jpeg" alt="Venue decoration photo 1" />
+          <img src="dekor2.jpeg" alt="Venue decoration photo 2" />
+          <img src="dekor3.jpeg" alt="Venue decoration photo 3" />
+          <img src="dekor4.jpeg" alt="Venue decoration photo 1" />
+          <img src="dekor5.jpeg" alt="Venue decoration photo 2" />
+          <img src="dekor6.jpeg" alt="Venue decoration photo 3" />
+        </div>
+      </article>
+      <article class="service-card" role="listitem" tabindex="0" aria-label="Photography & Videography">
+        <div class="service-icon" aria-hidden="true"></div>
+        <h3 class="service-title"> JABBAR MAKE UP & BUSANA</h3>
+        <p class="service-desc">Sentuhan lembut untuk hari yang paling kamu tunggu. Riasan by RINI JABBAR.</p>
+        <div class="service-photos" aria-label="Photography and videography photos">
+          <img src="mu1.jpeg" alt="Photography photo 1" />
+          <img src="mu2.jpeg" alt="Photography photo 2" />
+          <img src="mu3.jpeg" alt="Photography photo 3" />
+          <img src="mu4.jpeg" alt="Photography photo 1" />
+          <img src="mu5.jpeg" alt="Photography photo 2" />
+          <img src="mu6.jpeg" alt="Photography photo 3" />
+        </div>
+      </article>
+      <article class="service-card" role="listitem" tabindex="0" aria-label="Catering">
+        <div class="service-icon" aria-hidden="true"></div>
+        <h3 class="service-title"> JABBAR CATERING</h3>
+        <p class="service-desc">Dari menu rumahan sampai hidangan pesta semua ada di Jabbar Wedding Catering.</p>
+        <div class="service-photos" aria-label="Catering photos">
+          <img src="jabbarkirimpoto.jpeg" alt="Catering photo 1" />
+          <img src="jabbarkirimpoto.jpeg" alt="Catering photo 2" />
+          <img src="jabbarkirimpoto.jpeg" alt="Catering photo 3" />
+        </div>
+      </article>
+      <article class="service-card" role="listitem" tabindex="0" aria-label="Entertainment">
+        <div class="service-icon" aria-hidden="true"></div>
+        <h3 class="service-title">PHOTOGRAPHY</h3>
+        <p class="service-desc">Frame demi frame, cinta kalian kami abadikan dalam keindahan..</p>
+        <div class="service-photos" aria-label="Entertainment photos">
+          <img src="pt1.jpeg" alt="Entertainment photo 1" />
+          <img src="pt2.jpeg" alt="Entertainment photo 2" />
+          <img src="pt3.jpeg" alt="Entertainment photo 3" />
+        </div>
+      </article>
+      <article class="service-card" role="listitem" tabindex="0" aria-label="Entertainment">
+        <div class="service-icon" aria-hidden="true"></div>
+        <h3 class="service-title">DOKUMENTASI ACARA</h3>
+        <p class="service-desc">Elegan. Hangat. Berkesan. Itulah Jabbar Wedding.</p>
+        <div class="service-photos" aria-label="Entertainment photos">
+          <img src="1.jpeg" alt="Entertainment photo 1" />
+          <img src="2.jpeg" alt="Entertainment photo 2" />
+          <img src="3.jpeg" alt="Entertainment photo 3" />
+           <img src="6.jpeg" alt="Entertainment photo 3" />
+            <img src="5.jpeg" alt="Entertainment photo 1" />
+          <img src="4.jpeg" alt="Entertainment photo 2" />
+          <img src="7.jpeg" alt="Entertainment photo 3" />
+           <img src="8 (2).jpeg" alt="Entertainment photo 3" />
+            <img src="9.jpeg" alt="Entertainment photo 3" />
+    </div>
+  </section>
+
+  <section id="gallery" aria-labelledby="gallery-title">
+    <h2 id="gallery-title">Gallery</h2>
+    <div class="gallery-grid container" role="list">
+      <div class="gallery-item" role="listitem" tabindex="0">
+        <img src="logo makeup.png" alt="Gallery photo 1" />
+      </div>
+      <div class="gallery-item" role="listitem" tabindex="0">
+        <img src="jabbarlogogalery.png"Gallery photo 2" />
+      </div>
+     
+      <div class="gallery-item" role="listitem" tabindex="0">
+        <img src="logodecor.png" alt="Gallery photo 4" />
+      </div>
+    </div>
+  </section>
+
+  <section id="rsvp" aria-labelledby="rsvp-title">
+    <h2 id="rsvp-title">RSVP</h2>
+    <div class="rsvp-container">
+      <p style="margin-bottom: 1.5rem; color: var(--color-gray-light); font-size: 1.125rem;">
+        Kindly let us know if you will attend by contacting us on WhatsApp.
+      </p>
+      <a href="https://wasap.my/6289653838599/infowedding"
+         target="_blank"
+         rel="noopener"
+         class="btn-primary"
+         aria-label="Send RSVP via WhatsApp">
+        Send RSVP via WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-title">
+    <h2 id="contact-title">Contact</h2>
+    <div class="contact-info container">
+      <p><strong>Email:</strong> <a href="mailto:weddingday@example.com">weddingjabbar@gmail.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+1234567890">085797530437 (Ghazwan) </a></p>
+      <p><strong>Instagram:</strong> @jabbar.wedding</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2006 JABBARwedding. All rights reserved.
+</footer>
+
+</body>
+</html>
+
+```
